@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <unistd.h>
+#include <string.h>
 #include "header.h"
 
 bool command_line(void)
@@ -29,6 +30,5 @@ bool command_line(void)
         else
             execvp(*arg, arg);
     }
-
     return false;
 }
