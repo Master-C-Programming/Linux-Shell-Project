@@ -31,4 +31,8 @@ bool command_line(void)
             execvp(*arg, arg);
     }
     return false;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> fd3f273890ab5ff6f4724e8e62934b80f40e491d
