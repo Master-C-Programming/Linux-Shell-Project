@@ -14,7 +14,7 @@ bool command_line(void)
     gets(string);
     parse(string);
     arg = token;
-    if (!strcmp(arg[0], "quit") || !strcmp(arg[0], "exit"))
+    if (!strcmp(arg[0], "quit") || !strcmp(arg[0],"exit"))
         break;
     else
     {
@@ -31,8 +31,4 @@ bool command_line(void)
             execvp(*arg, arg);
     }
     return false;
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> fd3f273890ab5ff6f4724e8e62934b80f40e491d
