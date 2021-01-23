@@ -35,33 +35,33 @@ void change_directory(char** arg, int index)
 		
 		switch(flag)
 		{
-		case 1 : 
-			chdir(home);
-			break;
-		case 2 :
-			printf("%s", previous_directory);
-			if(strcmp("\0", previous_directory))
-				printf("\n");
-		case 3 :
-			if(!strcmp("\0", previous_directory))
-			{	
-				printf("cd: OLDPWD not set\n");
+			case 1 : 
+				chdir(home);
 				break;
-			}
-			else
-			{
-				chdir(previous_directory);
+			case 2 :
+				printf("%s", previous_directory);
+				if(strcmp("\0", previous_directory))
+					printf("\n");
+			case 3 :
+				if(!strcmp("\0", previous_directory))
+				{	
+					printf("cd: OLDPWD not set\n");
+					break;
+				}
+				else
+				{
+					chdir(previous_directory);
+					break;
+				}
+			case 4 :
+				strcpy(directory_path, home);
+				strcat(directory_path, arg[1] + 1);
+				if(chdir(directory_path))
+					printf("cd: %s: No such file or directory\n", directory_path);
 				break;
-			}
-		case 4 :
-			strcpy(directory_path, home);
-			strcat(directory_path, arg[1] + 1);
-			if(chdir(directory_path))
-				printf("cd: %s: No such file or directory\n", directory_path);
-			break;
-		default :
-			if(chdir(arg[1]))
-				printf("cd: %s: No such file or directory\n", arg[1]);
+			default :
+				if(chdir(arg[1]))
+					printf("cd: %s: No such file or directory\n", arg[1]);
 		}
 	}
 	else 
