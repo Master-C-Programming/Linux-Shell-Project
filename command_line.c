@@ -17,8 +17,11 @@ bool command_line()
     ptr = input;
     type = get_token(&arg[index++]);
     while (type != 1)
-        type = get_token(&arg[index++]);
-
+    {
+        type = get_token(&arg[index]);
+        if(type==2)
+            index++;
+    }
     if (!strcmp(arg[0], "quit") || !strcmp(arg[0], "exit"))
         return false;
     else
