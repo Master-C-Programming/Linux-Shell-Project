@@ -1,3 +1,5 @@
+#include "header.h"
+
 bool is_redirection(char **arg, int size)
 {
 	bool result = false;

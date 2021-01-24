@@ -1,12 +1,6 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
-#include <unistd.h>
-#include <pwd.h>
 #include "header.h"
 
-// char current_directory[SIZE] = "~";
-// char previous_directory[SIZE];
+char current_directory[SIZE] = "~";
 
 void change_directory(char** arg, int index)
 {
@@ -18,11 +12,11 @@ void change_directory(char** arg, int index)
 	password = getpwuid(getuid());
 	home = password -> pw_dir;
 	
-	if(index >= 4)
+	if(index >= 3)
 	{
 		printf("cd: too many arguments\n");
 	}
-	else if(index == 3)
+	else if(index == 2)
 	{
 		if(!strncmp("~", arg[1], 2))
 			flag = 1;
