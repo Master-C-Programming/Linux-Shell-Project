@@ -20,7 +20,6 @@
 // 사용자 정의 type정의부
 
 // 전역 변수 선언
-char current_directory[SIZE] = "~";
 char previous_directory[SIZE];
 char input[SIZE];
 char tokens[SIZE];

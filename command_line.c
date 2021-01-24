@@ -1,7 +1,3 @@
-#include <stdio.h>
-#include <string.h>
-#include <unistd.h>
-#include <stdbool.h>
 #include "header.h"
 
 bool command_line()
@@ -22,6 +18,7 @@ bool command_line()
         if(type==2)
             index++;
     }
+    arg[index] = NULL;
     if (!strcmp(arg[0], "quit") || !strcmp(arg[0], "exit"))
         return false;
     else
@@ -35,9 +32,9 @@ bool command_line()
         flag_redirection = is_redirection(arg, index);
         
         if (flag_redirection)
-            redirection(arg, index);
+			;
         else if (flag_pipe)
-            pipe(arg, index);
+			;
         else
             execvp(*arg, arg);
         return true;

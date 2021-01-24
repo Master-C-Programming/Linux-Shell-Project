@@ -1,3 +1,5 @@
+#include "header.h"
+
 int get_token(char **arg)
 {
     // token 타입 저장
@@ -12,7 +14,7 @@ int get_token(char **arg)
     switch(*tok++ = *ptr++)
     {
         case '&':
-            type = EMPERSAND;
+            type = AMPERSAND;
             break;
         case '\n':
             type = EOL;
