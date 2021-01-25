@@ -1,2 +1,3 @@
 executable_file/
 object_file/
+*.o
