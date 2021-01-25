@@ -36,7 +36,16 @@ bool command_line()
         else if (flag_pipe)
 			;
         else
-            execvp(*arg, arg);
+        {
+            int pid = fork();
+            int status = 0;
+
+            if(pid==0)
+                execvp(*arg, arg);
+            else
+                waitpid(-1,&status,0);
+            
+        }
         return true;
     }
 }
