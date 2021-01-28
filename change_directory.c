@@ -8,9 +8,11 @@ void change_directory(char** arg, int index)
 	char *home;
 	char directory_path[SIZE];
 	int flag = 0;
+	int home_len = 0;
 	
 	password = getpwuid(getuid());
 	home = password -> pw_dir;
+	home_len = strlen(home);
 	
 	if(index >= 3)
 	{
@@ -63,14 +65,21 @@ void change_directory(char** arg, int index)
 		chdir(home);
 	}
 	
-	if(!strcmp(current_directory, "~"))
+	if(!strncmp(current_directory, "~", 1))
+	{
 		strcpy(previous_directory, home);
+		strcat(previous_directory, current_directory + 1);
+	}
 	else
 		strcpy(previous_directory, current_directory);
 	
 	getcwd(current_directory, sizeof(current_directory));
-	if(!strcmp(current_directory, home))
+	if(!strncmp(current_directory, home, home_len))
+	{
+		strcpy(directory_path, current_directory);
 		strcpy(current_directory, "~");
+		strcat(current_directory, directory_path + (home_len));
+	}
 	
 	return;
 }
