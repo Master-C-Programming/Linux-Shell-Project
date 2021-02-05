@@ -32,5 +32,6 @@ void change_directory(char **arg, int index);
 bool is_pipe(char **arg, int size);
 bool is_redirection(char **arg, int size);
 bool command_line(void);
+void process_pipe(char **arg, int narg, int how);
 
 #endif

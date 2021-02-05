@@ -7,6 +7,7 @@ bool command_line()
     bool flag_redirection = false;
     int type = 0;
     int index = 0;
+    int how = 0;
 
     fgets(input, 1024, stdin);
     tok = tokens;
@@ -34,14 +35,17 @@ bool command_line()
         if (flag_redirection)
 			;
         else if (flag_pipe)
-			;
+			process_pipe(arg, index, how);
         else
         {
             int pid = fork();
             int status = 0;
 
             if(pid==0)
+            {
                 execvp(*arg, arg);
+                exit(1);
+            }
             else
                 waitpid(-1,&status,0);
             
