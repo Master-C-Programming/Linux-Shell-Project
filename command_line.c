@@ -5,6 +5,7 @@ bool command_line()
     char *arg[1024];
     bool flag_pipe = false;
     bool flag_redirection = false;
+    bool flag_background = false;
     int type = 0;
     int index = 0;
     int how = 0;
@@ -13,10 +14,12 @@ bool command_line()
     tok = tokens;
     ptr = input;
     type = get_token(&arg[index++]);
-    while (type != 1)
+    while (type != EOL)
     {
         type = get_token(&arg[index]);
-        if(type==2)
+        if(type == AMPERSAND)
+            flag_background = true;
+        if(type == ARG)
             index++;
     }
     arg[index] = NULL;
@@ -36,6 +39,8 @@ bool command_line()
 			;
         else if (flag_pipe)
 			process_pipe(arg, index, how);
+        else if (flag_background)
+            background(arg, index);
         else
         {
             int pid = fork();
