@@ -1,6 +1,6 @@
 CC=gcc
 CFLAGS=-g -Wall
-OBJS=main.o command_line.o get_token.o is_redirection.o is_pipe.o change_directory.o process_pipe.o
+OBJS=main.o command_line.o get_token.o is_redirection.o is_pipe.o change_directory.o process_pipe.o background.o
 TARGET=minishell
 
 $(TARGET): $(OBJS)
@@ -13,3 +13,4 @@ is_redirection.o: header.h is_redirection.c
 is_pipe.o: header.h is_pipe.c
 change_directory.o: header.h change_directory.c
 process_pipe.o: header.h process_pipe.c
+background.o: header.h background.c
