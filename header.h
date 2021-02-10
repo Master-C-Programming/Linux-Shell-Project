@@ -10,6 +10,7 @@
 #include <errno.h>
 #include <fcntl.h>
 #include <pwd.h>
+#include <signal.h>
 
 // 상수 및 매크로 정의부
 #define AMPERSAND 0
@@ -33,5 +34,6 @@ bool is_pipe(char **arg, int size);
 bool is_redirection(char **arg, int size);
 bool command_line(void);
 void process_pipe(char **arg, int narg, int how);
+void background(char **arg, int index);
 
 #endif
