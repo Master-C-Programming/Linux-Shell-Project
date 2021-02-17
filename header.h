@@ -21,6 +21,7 @@
 // 사용자 정의 type정의부
 
 // 전역 변수 선언
+char current_directory[SIZE];
 char previous_directory[SIZE];
 char input[SIZE];
 char tokens[SIZE];
@@ -35,5 +36,7 @@ bool is_redirection(char **arg, int size);
 bool command_line(void);
 void process_pipe(char **arg, int narg, int how);
 void background(char **arg, int index);
+void process_redir(char **arg, int narg);
+void fork_and_call_process_redir(char **arg, int narg);
 
 #endif
