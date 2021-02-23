@@ -35,10 +35,10 @@ bool command_line()
         flag_pipe = is_pipe(arg, index);
         flag_redirection = is_redirection(arg, index);
         
-        if (flag_redirection)
-			;
-        else if (flag_pipe)
+        if (flag_pipe)
 			process_pipe(arg, index, how);
+        else if (flag_redirection)
+			fork_and_call_process_redir(arg, index);
         else if (flag_background)
             background(arg, index);
         else

@@ -1,7 +1,5 @@
 #include "header.h"
 
-char current_directory[SIZE] = "~";
-
 void change_directory(char** arg, int index)
 {
 	struct passwd *password;

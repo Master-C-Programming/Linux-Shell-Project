@@ -101,8 +101,7 @@ void process_pipe(char **arg, int narg, int how)
 			}
 			
 			if(is_redirection(arg + index_of_pipe[i - 1] + 1, index_of_pipe[i] - index_of_pipe[i - 1] - 1))
-			    // process_redir(arg + index_of_pipe[i - 1] + 1, index_of_pipe[i] - index_of_pipe[i - 1] - 1);
-			    ;
+			    process_redir(arg + index_of_pipe[i - 1] + 1, index_of_pipe[i] - index_of_pipe[i - 1] - 1);
 			else
 			{
 			    execvp(*(arg + index_of_pipe[i - 1] + 1), arg + index_of_pipe[i - 1] + 1);
