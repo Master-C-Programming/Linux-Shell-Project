@@ -1,7 +1,7 @@
 CC=gcc
 CFLAGS=-g -Wall
 OBJS=main.o command_line.o get_token.o is_redirection.o is_pipe.o change_directory.o process_pipe.o background.o process_redir.o fork_and_call_process_redir.o
-TARGET=minishell
+TARGET=minishell.out
 
 $(TARGET): $(OBJS)
 	$(CC) -o $@ $(OBJS)
